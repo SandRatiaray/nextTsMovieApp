@@ -8,6 +8,15 @@ const __dirname = path.dirname(__filename);
 const nextConfig = {
     sassOptions: {
         includePaths: [path.join(__dirname, "src/styles")]
+    },
+    images: {
+        remotePatterns: [
+            {
+                protocol: "https",
+                hostname: "image.tmdb.org",
+                pathname: "/t/p/w500/**"
+            }
+        ]
     }
 };
 
