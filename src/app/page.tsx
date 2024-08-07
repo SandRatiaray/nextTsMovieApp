@@ -4,7 +4,7 @@ import Card from "@/components/Card/Card";
 const Home = () => {
   return (
     <div className={styles.main}>
-      <Card />
+      <Card mediaId={"123"} />
     </div>
   );
 }
