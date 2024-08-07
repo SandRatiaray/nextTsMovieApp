@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header/Header";
-import "./globals.css";
+import './globals.scss'
 import "@fortawesome/fontawesome-svg-core/styles.css"
 import { kanit, montserrat } from "@/font";
 

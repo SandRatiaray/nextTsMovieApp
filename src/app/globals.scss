@@ -1,0 +1,27 @@
+@import"variables";
+
+body{
+    margin: 0;
+    background: #141414;
+}
+
+.error{
+    color: $secondaryColor;
+    width: 100%;
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--font-montserrat);
+
+    h1{
+        margin: 0;
+        font-size: 100px;
+        font-weight: 700;
+    }
+
+    p {
+        font-size: 16px;
+    }
+}
