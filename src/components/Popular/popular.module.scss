@@ -1,0 +1,12 @@
+@import"variables";
+
+
+.container {
+    display: flex;
+    gap:30px;
+
+    > div {
+        width: 200px;
+    }
+}
+

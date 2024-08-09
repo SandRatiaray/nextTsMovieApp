@@ -2,21 +2,23 @@ import React from "react";
 import styles from "./Card.module.scss"
 import Image from "next/image";
 import Link from "next/link";
+import { IMovie } from "@/interfaces/movie";
 
-const Card = ({ mediaId }: { mediaId: string }) => {
+const Card = ({ media }: { media: IMovie }) => {
     return (
         <div className={styles.card}>
-            <Link href={`movies/${mediaId}`}>
+            <Link href={`movies/${media.id}`}>
                 <div className={styles.image}>
                     <Image
-                        src="https://image.tmdb.org/t/p/w500/cvsXj3I9Q2iyyIo95AecSd1tad7.jpg"
+                        src={`${process.env.TMDB_IMAGE_BASE_PATH}${media.poster_path}`}
                         alt="Movie Car"
                         fill
                     />
                 </div>
                 <div className={styles.content}>
-                    <h2>Creed III</h2>
-                    <p>Le 01/03/2023</p>
+                    <p className={styles.vote}>{media.vote_average.toFixed(2)}</p>
+                    <h3>{media.title}</h3>
+                    <p> Le {new Date(media.release_date).toLocaleDateString("fr-FR")}</p>
                 </div>
             </Link>
         </div>
