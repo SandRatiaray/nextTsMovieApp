@@ -10,7 +10,7 @@ const Card = ({ media }: { media: IMovie }) => {
             <Link href={`movies/${media.id}`}>
                 <div className={styles.image}>
                     <Image
-                        src={`${process.env.TMDB_IMAGE_BASE_PATH}${media.poster_path}`}
+                        src={`${process.env.NEXT_PUBLIC_TMDB_IMAGE_BASE_PATH}${media.poster_path}`}
                         alt="Movie Car"
                         fill
                     />
