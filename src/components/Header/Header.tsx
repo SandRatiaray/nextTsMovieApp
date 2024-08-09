@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 import Image from 'next/image';
 import Link from 'next/link';
+import Searchbar from '../Searchbar/Searchbar';
 
 
 const Header = () => {
@@ -29,7 +30,7 @@ const Header = () => {
                     </ul>
                 </nav>
             </div>
-            <input type="text" placeholder='Titres,personnes,genres' />
+            <Searchbar />
             <div>
                 <FontAwesomeIcon icon={faUser} />
             </div>
