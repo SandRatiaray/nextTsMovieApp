@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header/Header";
-import "./globals.css";
+import './globals.scss'
 import "@fortawesome/fontawesome-svg-core/styles.css"
+import { kanit, montserrat } from "@/font";
 
 
 export const metadata: Metadata = {
@@ -16,7 +17,7 @@ const RootLayout = ({
 }>) => {
   return (
     <html lang="en">
-      <body >
+      <body className={`${kanit.variable} ${montserrat.variable}`}>
         <Header />
         <main>
           {children}
