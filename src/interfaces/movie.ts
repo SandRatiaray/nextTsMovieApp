@@ -15,10 +15,18 @@ export interface IMovie {
   vote_count: number;
 }
 
+export interface IResultApi {
+  page: number;
+  results: IMovie[];
+  total_pages: number;
+  total_results: number;
+}
 
-export interface IResultApi{
-    page:number;
-    results:IMovie[];
-    total_pages:number;
-    total_results:number;
+export interface IGenre {
+  id: number;
+  name: string;
+}
+
+export interface IGenresMovies {
+  genres: IGenre[];
 }
