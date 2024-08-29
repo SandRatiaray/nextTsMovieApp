@@ -15,9 +15,14 @@ export const getMovieByPath = (
 
   url.searchParams.append('api_key', process.env.TMDB_API_KEY!);
   url.searchParams.append('language', language);
-  params.forEach((param) => {
-    url.searchParams.append(param.key, param.value);
-  });
+
+  params
+    // delete empty value
+    .filter((param) => param.value)
+    // merge all params
+    .forEach((param) => {
+      url.searchParams.append(param.key, param.value);
+    });
 
   return fetch(url).then((res) => res.json());
 };
