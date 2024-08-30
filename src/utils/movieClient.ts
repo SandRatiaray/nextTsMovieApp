@@ -1,10 +1,9 @@
 // Library who send error if we import it in a client component
 import 'server-only';
 
-interface IParams {
-  key: string;
-  value: string;
-}
+import { IParams } from '@/interfaces/movie';
+
+
 
 export const getMovieByPath = (
   path: string,

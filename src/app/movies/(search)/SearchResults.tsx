@@ -1,15 +1,15 @@
 import { getMovieByPath } from '@/utils/movieClient';
 import styles from './SearchResults.module.scss'
-import { IMovie } from '@/interfaces/movie';
+import { IMovie, ISearchParams } from '@/interfaces/movie';
 import Card from '@/components/Card/Card';
 
+const SearchResults = async ({ genreId, searchParams }: { genreId?: string, searchParams: ISearchParams }) => {
 
-const SearchResults = async ({ genreId, searchParams }: { genreId?: string, searchParams: any }) => {
     const { results }: { results: IMovie[] } = await getMovieByPath("/discover/movie", [
         { key: "sort_by", value: searchParams.sort_by },
         { key: "release_gte", value: searchParams["release_gte"] },
         { key: "release_lte", value: searchParams["release_lte"] },
-        { key: "whith_genres", value: genreId }
+        { key: "whith_genres", value: genreId as string }
     ])
 
     return (
