@@ -6,7 +6,7 @@ import { IMovie } from "@/interfaces/movie";
 
 const Card = ({ media }: { media: IMovie }) => {
     const widthCard = "/w500"
-
+    
     return (
         <div className={styles.card}>
             <Link href={`movies/${media.id}`}>
