@@ -1,8 +1,8 @@
 export interface IMovie {
   adult: boolean;
   backdrop_path: string;
-  genre_ids: string[];
-  id: number;
+  genre_ids: number[];
+  id: string;
   original_language: string;
   original_title: string;
   overview: string;
@@ -47,7 +47,7 @@ export interface IMovieDetail {
   budget: number;
   genres: IGenresMovies;
   homepage: string;
-  id: number;
+  id: string;
   imdb_id: string;
   origin_country: string[];
   original_language: string;
@@ -130,4 +130,11 @@ export interface ICredits {
   id: number;
   cast: ICast[];
   crew: ICrew[];
+}
+
+export interface IMovieSimilar {
+  page: number;
+  results: IMovie[];
+  total_pages: number;
+  total_results: number;
 }
