@@ -5,6 +5,9 @@ import React from 'react';
 import styles from './SearchbarResults.module.scss'
 
 const SearchbarResults = ({ movieResult }: { movieResult: IMovie[] }) => {
+
+    const widthCard = "/w500"
+
     return (
         <div className={styles.searchResults}>
             {movieResult.map((movie) => (
@@ -13,7 +16,7 @@ const SearchbarResults = ({ movieResult }: { movieResult: IMovie[] }) => {
                         <Image
                             width={90}
                             height={50}
-                            src={`${process.env.NEXT_PUBLIC_TMDB_IMAGE_BASE_PATH}${movie.backdrop_path}`}
+                            src={`${process.env.NEXT_PUBLIC_TMDB_IMAGE_BASE_PATH}${widthCard}${movie.backdrop_path}`}
                             alt={movie.title}
                         />
                         <p>{movie.title}</p>
