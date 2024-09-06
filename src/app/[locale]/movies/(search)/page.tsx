@@ -1,6 +1,6 @@
 import React from 'react';
 import SearchResults from './SearchResults';
-import { ISearchParams } from '@/interfaces/movie';
+import { ISearchParams } from '@/interfaces/params';
 
 
 

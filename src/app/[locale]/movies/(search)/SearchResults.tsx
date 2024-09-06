@@ -1,6 +1,7 @@
 import { getMovieByPath } from '@/utils/movieClient';
 import styles from './SearchResults.module.scss'
-import { IMovie, ISearchParams } from '@/interfaces/movie';
+import { IMovie } from '@/interfaces/movie';
+import { ISearchParams } from '@/interfaces/params';
 import Card from '@/components/Card/Card';
 
 const SearchResults = async ({ genreId, searchParams }: { genreId?: string, searchParams: ISearchParams }) => {
