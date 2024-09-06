@@ -7,8 +7,8 @@ import styles from './Genres.module.scss';
 
 
 
-const Genres = async () => {
-    const { genres }: IGenresMovies = await getMovieByPath("/genre/movie/list")
+const Genres = async ({ locale }: { locale: string }) => {
+    const { genres }: IGenresMovies = await getMovieByPath("/genre/movie/list", [], locale)
     return (
         <div>
             <h2> Parcourir par genres</h2>

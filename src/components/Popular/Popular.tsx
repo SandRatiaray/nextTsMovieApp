@@ -4,8 +4,8 @@ import React from "react";
 import Card from "../Card/Card";
 import styles from './popular.module.scss'
 
-const Popular = async () => {
-    const { results }: { results: IMovie[] } = await getMovieByPath('/movie/popular');
+const Popular = async ({ locale }: {locale:string}) => {
+    const { results }: { results: IMovie[] } = await getMovieByPath('/movie/popular', [], locale);
     const popularMovies = results.slice(0, 6);
 
     return (
