@@ -1,9 +1,6 @@
 // Library who send error if we import it in a client component
+import { IParams } from '@/interfaces/params';
 import 'server-only';
-
-import { IParams } from '@/interfaces/movie';
-
-
 
 export const getMovieByPath = (
   path: string,
@@ -20,7 +17,7 @@ export const getMovieByPath = (
     .filter((param) => param.value)
     // merge all params
     .forEach((param) => {
-      url.searchParams.append(param.key, param.value);
+      url.searchParams.append(param.key!, param.value!);
     });
 
   return fetch(url).then((res) => res.json());

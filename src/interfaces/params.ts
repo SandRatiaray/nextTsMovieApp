@@ -1,5 +1,5 @@
 export interface IParams {
-  params: {
+  params?: {
     id?: string;
     locale?: string;
   };

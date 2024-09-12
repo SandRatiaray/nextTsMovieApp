@@ -5,6 +5,7 @@ import { faUser } from '@fortawesome/free-solid-svg-icons';
 import Image from 'next/image';
 import Link from 'next/link';
 import Searchbar from '../Searchbar/Searchbar';
+import LanguageSelector from '../language-selector/LanguageSelector';
 
 
 const Header = () => {
@@ -34,6 +35,7 @@ const Header = () => {
             <div>
                 <FontAwesomeIcon icon={faUser} />
             </div>
+            <LanguageSelector />
         </header>
     );
 };
