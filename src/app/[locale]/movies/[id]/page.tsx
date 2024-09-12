@@ -9,7 +9,7 @@ import React, { Suspense } from 'react';
 export const dynamic = "force-static";
 export const revalidate = 3600;
 
-const MoviesDetail = async ({ params: { id, locale } }: IParams) => {
+const MoviesDetail = async ({ params: { id, locale } }: { params: { id: string, locale: string } }) => {
     const movie: IMovieDetail = await getMovieByPath(`/movie/${id}`, [], locale);
 
     if (!movie.original_title) {
@@ -20,7 +20,7 @@ const MoviesDetail = async ({ params: { id, locale } }: IParams) => {
         <div>
             < MovieDetails movie={movie} />
             <Suspense fallback={<p> Chargement ...</p>}>
-                <SimilarMovies movieId={movie.id} />
+                <SimilarMovies movieId={movie.id} locale={locale} />
             </Suspense>
         </div>
     );

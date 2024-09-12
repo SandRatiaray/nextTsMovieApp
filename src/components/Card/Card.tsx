@@ -4,12 +4,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { IMovie } from "@/interfaces/movie";
 
-const Card = ({ media }: { media: IMovie }) => {
+const Card = ({ media, locale }: { media: IMovie, locale: string }) => {
     const widthCard = "/w500"
-    
+
     return (
         <div className={styles.card}>
-            <Link href={`movies/${media.id}`}>
+            <Link href={`/${locale}/movies/${media.id}`}>
                 <div className={styles.image}>
                     <Image
                         src={`${process.env.NEXT_PUBLIC_TMDB_IMAGE_BASE_PATH}${widthCard}${media.poster_path}`}

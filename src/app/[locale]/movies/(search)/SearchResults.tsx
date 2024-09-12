@@ -4,7 +4,7 @@ import { IMovie } from '@/interfaces/movie';
 import { ISearchParams } from '@/interfaces/params';
 import Card from '@/components/Card/Card';
 
-const SearchResults = async ({ genreId, searchParams }: { genreId?: string, searchParams: ISearchParams }) => {
+const SearchResults = async ({ genreId, searchParams, locale }: { genreId?: string, searchParams: ISearchParams, locale: string }) => {
 
     const { results }: { results: IMovie[] } = await getMovieByPath("/discover/movie", [
         { key: "sort_by", value: searchParams.sort_by },
@@ -16,7 +16,7 @@ const SearchResults = async ({ genreId, searchParams }: { genreId?: string, sear
     return (
         <div className={styles.results}>
             {results.filter((movie) => movie.poster_path).map((movie: IMovie) => (
-                <Card key={movie.id} media={movie} />
+                <Card key={movie.id} media={movie} locale={locale} />
             ))}
         </div>
     );
