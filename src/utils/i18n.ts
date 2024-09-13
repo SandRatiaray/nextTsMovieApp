@@ -1,10 +1,11 @@
 import { match } from '@formatjs/intl-localematcher';
 import Negotiator from 'negotiator';
 import { NextRequest } from 'next/server';
+import { Locale } from './i18n-config';
 
 // prefix system
-export const availableLocales = ['en', 'fr'];
-export const defaultLocale = 'fr';
+export const availableLocales: Locale[] = ['en', 'fr'];
+export const defaultLocale: Locale = 'fr';
 
 // check headers and filter language by preference
 export const getPrefferedLocale = (request: NextRequest) => {
