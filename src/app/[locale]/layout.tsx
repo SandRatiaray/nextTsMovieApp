@@ -4,6 +4,7 @@ import './globals.scss'
 import "@fortawesome/fontawesome-svg-core/styles.css"
 import { kanit, montserrat } from "@/font";
 import { availableLocales } from "@/utils/i18n";
+import { Locale } from "@/utils/i18n-config";
 
 
 export const metadata: Metadata = {
@@ -16,14 +17,16 @@ export function generateStaticParams() {
 }
 
 const RootLayout = ({
-  children,
+  children, params: { locale }
 }: Readonly<{
-  children: React.ReactNode;
+  children: React.ReactNode, params: { locale: Locale }
 }>) => {
+
+
   return (
     <html lang="en">
       <body className={`${kanit.variable} ${montserrat.variable}`}>
-        <Header />
+        <Header locale={locale} />
         <main>
           {children}
         </main>

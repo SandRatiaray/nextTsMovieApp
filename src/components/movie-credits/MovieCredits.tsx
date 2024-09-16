@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { getMovieByPath } from '@/utils/movieClient';
-import { ICast, ICredits } from '@/interfaces/movie';
+import { ICast } from '@/interfaces/movie';
 import styles from './MovieCredits.module.scss'
 
 const MovieCredits = async ({ movieId }: { movieId: any }) => {

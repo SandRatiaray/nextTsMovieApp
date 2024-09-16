@@ -3,8 +3,12 @@ import React, { Suspense } from 'react';
 import styles from "./MovieDetails.module.scss"
 import Image from 'next/image';
 import MovieCredits from '../movie-credits/MovieCredits';
+import { Locale } from '@/utils/i18n-config';
+import { getDictionary } from '@/utils/dictionaries';
 
-const MovieDetails = ({ movie }: { movie: IMovieDetail }) => {
+const MovieDetails = async ({ movie, locale }: { movie: IMovieDetail, locale: Locale }) => {
+    const i18n = await getDictionary(locale);
+
     return (
         <div className={styles.details}>
             <div className={styles.background}>
@@ -30,7 +34,7 @@ const MovieDetails = ({ movie }: { movie: IMovieDetail }) => {
                         </span>
                     </h1>
                     <p className={styles.production}>
-                        Production :{" "}
+                        {i18n.movieDetail.production} :{" "}
                         <span>
                             {movie.production_companies
                                 .map((company: IProduction_companies) => company.name)
@@ -38,11 +42,11 @@ const MovieDetails = ({ movie }: { movie: IMovieDetail }) => {
                             }
                         </span>
                     </p>
-                    <h2> Synopsis</h2>
+                    <h2>{i18n.movieDetail.synopsis}</h2>
                     <p className={styles.overview}>{movie.overview}</p>
                     <h2 style={{ margin: "0px 0px  14px 0px" }}>Acteurs</h2>
                     <div className={styles.credits}>
-                        <Suspense fallback={<p> Chargement ...</p>}>
+                        <Suspense fallback={<p>{i18n.loading}...</p>}>
                             <MovieCredits movieId={movie.id} />
                         </Suspense>
                     </div>
