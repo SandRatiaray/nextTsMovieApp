@@ -3,18 +3,20 @@ import styles from "./Card.module.scss"
 import Image from "next/image";
 import Link from "next/link";
 import { IMovie } from "@/interfaces/movie";
+import { Locale } from "@/utils/i18n-config";
 
-const Card = ({ media }: { media: IMovie }) => {
+const Card = ({ media, locale }: { media: IMovie, locale: Locale }) => {
     const widthCard = "/w500"
-    
+
     return (
         <div className={styles.card}>
-            <Link href={`movies/${media.id}`}>
+            <Link href={`/${locale}/movies/${media.id}`}>
                 <div className={styles.image}>
                     <Image
                         src={`${process.env.NEXT_PUBLIC_TMDB_IMAGE_BASE_PATH}${widthCard}${media.poster_path}`}
-                        alt="Movie Car"
+                        alt={media.original_title}
                         fill
+                        sizes="500w"
                     />
                 </div>
                 <div className={styles.content}>

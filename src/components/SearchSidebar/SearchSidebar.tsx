@@ -3,10 +3,12 @@ import { IGenre } from "@/interfaces/movie";
 import { useSelectedLayoutSegment, useParams, notFound } from "next/navigation";
 import styles from './SearchSidebar.module.scss'
 import Form from "./Form/Form";
+import { Locale } from "@/utils/i18n-config";
+import { useEffect } from "react";
 
-const SearchSidebar = ({ genres }: { genres: IGenre[] }) => {
+const SearchSidebar = ({ genres, dict }: { genres: IGenre[], dict: any }) => {
     const segment = useSelectedLayoutSegment();
-    const { id } = useParams();
+    const { id }: { id: string, locale: Locale } = useParams();
 
     const getSidebarTitle = () => {
         if (!segment) {
@@ -21,10 +23,14 @@ const SearchSidebar = ({ genres }: { genres: IGenre[] }) => {
 
     const title = getSidebarTitle();
 
+    useEffect(() => {
+
+    }, [])
+
     return (
         <div className={styles.sidebar}>
-            <h1> Tous les &quot;{title}&quot;</h1>
-            <Form />
+            <h1>{title}</h1>
+            <Form dict={dict} />
         </div>
     );
 };

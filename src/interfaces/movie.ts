@@ -85,17 +85,7 @@ export interface IGenresMovies {
   genres: IGenre[];
 }
 
-export interface IParams {
-  key: string;
-  value: string;
-}
 
-export interface ISearchParams {
-  sort_by: string;
-  release_gte: string;
-  release_lte: string;
-  whith_genres?: string;
-}
 
 export interface ICast {
   adult: boolean;

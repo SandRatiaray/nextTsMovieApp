@@ -1,0 +1,30 @@
+{
+    "popular": {
+        "title": "Les plus populaires"
+    },
+    "genres": {
+        "title": "Parcourir par genres"
+    },
+    "header": {
+        "movies": "Films",
+        "tvShow": "Séries"
+    },
+    "movieDetail": {
+        "production": "production",
+        "synopsis": "synopsis"
+    },
+    "loading": "chargement",
+    "searchSidebar": {
+        "filter": "filtrer",
+        "releaseDate": "Date de sortie:",
+        "from": "De",
+        "to": "Au",
+        "filterBy": "filtrer par",
+        "popularity": "popularité",
+        "score": "Note",
+        "scoreNumber": "Nombre de notes",
+        "search": "rechercher"
+    },
+    "searchBar": "Titres,personnes,genres",
+    "allOf": "tout les "
+}

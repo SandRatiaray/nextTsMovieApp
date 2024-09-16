@@ -5,9 +5,14 @@ import { faUser } from '@fortawesome/free-solid-svg-icons';
 import Image from 'next/image';
 import Link from 'next/link';
 import Searchbar from '../Searchbar/Searchbar';
+import LanguageSelector from '../language-selector/LanguageSelector';
+import { Locale } from '@/utils/i18n-config';
+import { getDictionary } from '@/utils/dictionaries';
 
 
-const Header = () => {
+const Header = async ({ locale }: { locale: Locale }) => {
+    const i18n = await getDictionary(locale);
+
     return (
         <header className={styles.header}>
             <div className={styles.logo}>
@@ -25,15 +30,16 @@ const Header = () => {
             <div className={styles.navigation}>
                 <nav>
                     <ul>
-                        <li><Link href="/tvshows">Séries</Link></li>
-                        <li><Link href="/movies">Films</Link></li>
+                        <li><Link href="/tvshows">{i18n.header.tvShow}</Link></li>
+                        <li><Link href="/movies">{i18n.header.movies}</Link></li>
                     </ul>
                 </nav>
             </div>
-            <Searchbar />
+            <Searchbar dict={i18n} />
             <div>
                 <FontAwesomeIcon icon={faUser} />
             </div>
+            <LanguageSelector />
         </header>
     );
 };
