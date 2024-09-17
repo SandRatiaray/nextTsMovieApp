@@ -8,13 +8,16 @@
     background-color: $primaryColor;
     color:$whiteColor;
     padding: 0 20px;
-
+    position: fixed;
+    z-index: 100;
+    width: -webkit-fill-available;
 
     .navigation{
         display: flex;
         justify-content: flex-end;
         flex:0.5;
         gap: 20px;
+        width: 400px;
 
         nav{
             ul{
@@ -34,10 +37,15 @@
         border:none;
         padding-left: 10px;
         outline: none;
+        height: 25px;
     }
 
     > div {
         display: flex;
         align-items: center;
+    }
+
+    .usersPart{
+        gap:20px;
     }
 }
