@@ -13,7 +13,6 @@ const SearchResults = async ({ genreId, searchParams, locale }: { genreId?: stri
         { key: "release_lte", value: searchParams["release_lte"] },
         { key: "whith_genres", value: genreId as string }
     ]);
-    console.log(locale);
 
     return (
         <div className={styles.results}>
