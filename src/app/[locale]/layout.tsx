@@ -5,6 +5,7 @@ import "@fortawesome/fontawesome-svg-core/styles.css"
 import { kanit, montserrat } from "@/font";
 import { availableLocales } from "@/utils/i18n";
 import { Locale } from "@/utils/i18n-config";
+import AuthProvider from "@/components/auth-provider/AuthProvider";
 
 
 export const metadata: Metadata = {
@@ -31,7 +32,9 @@ const RootLayout = ({
       <body className={`${kanit.variable} ${montserrat.variable}`}>
         <Header locale={locale} />
         <main>
-          {children}
+          <AuthProvider>
+            {children}
+          </AuthProvider>
         </main>
       </body>
     </html>
