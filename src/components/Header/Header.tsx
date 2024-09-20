@@ -29,15 +29,19 @@ const Header = async ({ locale }: { locale: Locale }) => {
                 <div className={styles.navigation}>
                     <nav>
                         <ul>
-                            <li><Link href="/tvshows">{i18n.header.tvShow}</Link></li>
-                            <li><Link href="/movies">{i18n.header.movies}</Link></li>
+                            <li><Link href={`/${locale}/tvshows`}>{i18n.header.tvShow}</Link></li>
+                            <li><Link href={`/${locale}/movies`}>{i18n.header.movies}</Link></li>
                         </ul>
                     </nav>
                 </div>
             </div>
             <div className={styles.usersPart}>
                 <Searchbar dict={i18n} />
-                <FontAwesomeIcon icon={faUser} />
+                <Link href={`/${locale}/signup`}>Inscription</Link>
+                <Link href={`/${locale}/user/profile`}>
+                    <FontAwesomeIcon icon={faUser} />
+                </Link>
+
                 <LanguageSelector />
             </div>
         </header>
