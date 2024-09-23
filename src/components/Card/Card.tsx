@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { IMovie } from "@/interfaces/movie";
 import { Locale } from "@/utils/i18n-config";
+import Like from "./like/Like";
 
 const Card = ({ media, locale }: { media: IMovie, locale: Locale }) => {
     const widthCard = "/w500"
@@ -20,9 +21,14 @@ const Card = ({ media, locale }: { media: IMovie, locale: Locale }) => {
                     />
                 </div>
                 <div className={styles.content}>
-                    <p className={styles.vote}>{media.vote_average.toFixed(2)}</p>
+                    <ul className={styles.interact}>
+                        <li className={styles.vote}>{media.vote_average.toFixed(2)}</li>
+                        <li className={styles.like}>
+                            <Like mediaId={media.id} />
+                        </li>
+                    </ul>
                     <h3>{media.title}</h3>
-                    <p> Le {new Date(media.release_date).toLocaleDateString("fr-FR")}</p>
+                    {/* <p> Le {new Date(media.release_date).toLocaleDateString("fr-FR")}</p> */}
                 </div>
             </Link>
         </div>
