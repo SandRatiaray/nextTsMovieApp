@@ -1,4 +1,5 @@
 // Library who send error if we import it in a client component
+import { IMovie } from '@/interfaces/movie';
 import { IParams } from '@/interfaces/params';
 import 'server-only';
 
@@ -21,4 +22,18 @@ export const getMovieByPath = (
     });
 
   return fetch(url).then((res) => res.json());
+};
+
+// create this function because there is API calls for this
+export const getHydratedMovies = async (
+  movieIds: string[],
+  language: string = 'fr-Fr'
+) => {
+  const moviePromises: Promise<IMovie>[] = movieIds.map((movieId: string) =>
+    getMovieByPath(`/movie/${movieId}`, [], language)
+  );
+
+  const movies = await Promise.all(moviePromises);
+
+  return movies;
 };
