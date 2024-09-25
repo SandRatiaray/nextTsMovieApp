@@ -36,7 +36,7 @@ const Header = async ({ locale }: { locale: Locale }) => {
                 </div>
             </div>
             <div className={styles.usersPart}>
-                <Searchbar dict={i18n} />
+                <Searchbar dict={i18n} locale={locale} />
                 <Link href={`/${locale}/signup`}>Inscription</Link>
                 <Link href={`/${locale}/user/profile`}>
                     <FontAwesomeIcon icon={faUser} />

@@ -1,19 +1,16 @@
 "use client";
 
 import { IMovie } from "@/interfaces/movie";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { DebounceInput } from "react-debounce-input";
 import SearchbarResults from "./SearchbarResults/SearchbarResults";
 import styles from './Searchbar.module.scss'
 import { Locale } from "@/utils/i18n-config";
-import { defaultLocale } from "@/utils/i18n";
-import { getDictionary } from "@/utils/dictionaries";
 
-const Searchbar = ({ dict }: { dict: any }) => {
+const Searchbar = ({ dict, locale }: { dict: any, locale: Locale }) => {
 
     const [movieResult, setMovieResults] = useState<IMovie[]>([]);
     const [hasFocus, setHasFocus] = useState<boolean>(false);
-    const [language, setLanguage] = useState<any>({})
 
 
     const updateMovieSearch = async (query: string) => {
@@ -23,21 +20,6 @@ const Searchbar = ({ dict }: { dict: any }) => {
         setMovieResults(results.slice(0, 10).filter((movie: IMovie) => movie.backdrop_path))
     }
 
-
-
-    // useEffect(() => {
-    //     const getDict = async () => {
-    //         const dict = await getDictionary(locale)
-    //         setLanguage(dict)
-    //     }
-    //     try {
-    //         getDict()
-    //     } catch (e) {
-    //         throw new Error("Can't get the language")
-    //     }
-
-
-    // }, [language, locale])
 
     return (
         <div className={styles.searchContainer}>
@@ -49,7 +31,7 @@ const Searchbar = ({ dict }: { dict: any }) => {
                 onBlur={() => setHasFocus(false)}
                 onFocus={() => setHasFocus(true)}
             />
-            {movieResult.length > 0 && hasFocus && <SearchbarResults movieResult={movieResult} />}
+            {movieResult.length > 0 && hasFocus && <SearchbarResults movieResult={movieResult} locale={locale} />}
         </div>
     )
 }
