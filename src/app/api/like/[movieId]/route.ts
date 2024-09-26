@@ -13,16 +13,28 @@ export async function POST(
     return NextResponse.json({ message: 'unauthorized' }, { status: 401 });
   }
 
-  const user = await prisma.user.update({
+  // Check if the movie is already in the movieLike entity
+  const findDuplicates = await prisma.movieLike.findFirst({
     where: {
-      email: token.email as string,
-    },
-    data: {
-      movie: {
-        create: [{ movieId }],
-      },
+      userId: token.sub as string,
+      movieId: movieId,
     },
   });
 
-  return NextResponse.json(user);
+  if (!findDuplicates) {
+    const user = await prisma.user.update({
+      where: {
+        email: token.email as string,
+      },
+      data: {
+        movie: {
+          create: [{ movieId }],
+        },
+      },
+    });
+
+    return NextResponse.json(user, { status: 200 });
+  } else {
+    return NextResponse.json({ error: 'Already in the list' }, { status: 409 });
+  }
 }
