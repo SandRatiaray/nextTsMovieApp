@@ -45,6 +45,7 @@
         .description{
             display: flex;
             flex-direction: column;
+            justify-content: space-between;
             flex: 0.6;
             color: $whiteColor;
             font-family: var(--font-montserrat);
@@ -88,7 +89,7 @@
         }
 
         .credits{
-            margin-top: auto;
+            // margin-top: auto;
         }
     }
 }
