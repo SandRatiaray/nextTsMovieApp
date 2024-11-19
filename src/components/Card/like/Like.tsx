@@ -17,8 +17,18 @@ const Like = ({ mediaId }: { mediaId: string }) => {
         }
         fetch(`/api/like/${mediaId}`, {
             method: "POST",
+        }).then((res) => {
+            if (res.status === 409) {
+                alert("error");
+            } else {
+                alert("movie added in the list")
+            }
+
         });
     }
+
+    console.log(session);
+
 
 
     return (
